@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Workflow App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="nav">
+    {% if current_user.is_authenticated %}
+        <a href="/">Dashboard</a>
+        <a href="/submit">Submit Request</a>
+        <a href="/logout">Logout</a>
+    {% else %}
+        <a href="/login">Login</a>
+        <a href="/signup">Signup</a>
+    {% endif %}
+</div>
+
+<div class="container">
+    {% with messages = get_flashed_messages() %}
+        {% for msg in messages %}
+            <div class="card">{{ msg }}</div>
+        {% endfor %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+</div>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+    <h2>Submit New Request</h2>
+    <form method="post">
+        {{ form.hidden_tag() }}
+        {{ form.title.label }}
+        {{ form.title() }}
+
+        {{ form.description.label }}
+        {{ form.description() }}
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+{% endblock %}
